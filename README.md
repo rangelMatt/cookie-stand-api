@@ -1,24 +1,35 @@
-# api-quick-start
+# Lab - Class 34: API Deployment
 
-Template Project for starting up CRUD API with Django Rest Framework
+## Project: cookie-stand-api
 
-## Customization Steps
+### Author: Matt Rangel
 
-- DO NOT migrate yet
-- add additional dependencies as needed
-  - Re-export requirements.txt as needed
-- change `things` folder to the app name of your choice
-- Search through entire code base for `Thing`,`Things` and `things` to modify code to use your resource
-  - `project/settings.py`
-  - `project/urls.py`
-  - App's files
-    - `views.py`
-    - `urls.py`
-    - `admin.py`
-    - `serializers.py`
-    - `permissions.py`
-- Update ThingModel with fields you need
-  - Make sure to update other modules that would be affected by Model customizations. E.g. serializers, tests, etc.
-- Rename `project/.env.sample` to `.env` and update as needed
-- Run makemigrations and migrate commands
-- Optional: Update `api_tester.py`
+### Date: 6/2/2022
+
+### Links and Resources
+
+- [Django](https://www.djangoproject.com)
+- [Docker](https://simpleisbetterthancomplex.com/series/2017/09/11/a-complete-beginners-guide-to-django-part-2.html)
+- [https://devcenter.heroku.com/articles/heroku-cli-commands](https://devcenter.heroku.com/articles/heroku-cli-commands)
+- Morning Lecture
+
+### Setup from template
+
+- `clone down template`
+- `rename .env_sample to .env`
+- `docker compose run web bash`
+- copy and paste/type`python -c 'import secrets; print(secrets:token_urlsafe()`
+- Grab the key, update .env file with secret_key
+- `run docker compose up`
+- `docker compose run web bash`
+- `python manage.py showmigrations`
+- `docker compose up --build`
+- `python manage.py migrate`
+- `python manage.py runserver`
+- `python manage.py startapp <app name>`
+- `python manage.py makemigrations <app name>`
+- `python manage.py migrate`
+  - `python manage.py createsuperuser`
+  - `UserName: <admin name>`
+  - `password: <password>`
+- `python manage.py runserver`

@@ -76,7 +76,7 @@ class ApiTester:
         return response.json()
 
     # TODO adjust parameter names to match API
-    def create(self, name, description=None, owner=None):
+    def create(self, location=None, owner=None, description=None, hourly_sales=0, minimum_customers_per_hour=0, maximum_customers_per_hour=0, average_cookies_per_sale=0):
         """creates a resource in api
 
         Usage:
@@ -95,7 +95,7 @@ class ApiTester:
         }
 
         data = {
-            "name": name,
+            "location": location,
             "description": description,
             "purchaser": purchaser,
         }
@@ -104,7 +104,7 @@ class ApiTester:
 
         return response.json()
 
-    def update(self, id, name=None, description=None, purchaser=None):
+    def update(self, id, location=None, owner=None, description=None, hourly_sales=0, minimum_customers_per_hour=0, maximum_customers_per_hour=0, average_cookies_per_sale=0):
         """updates a resource in api
 
         Usage:
@@ -125,9 +125,13 @@ class ApiTester:
         original = self.get_one(id)
 
         data = {
-            "name": name or original["name"],
+            "location": location or original["location"],
+            "owner": owner or original["owner"],
             "description": description or original["description"],
-            "purchaser": purchaser or original["purchaser"],
+            "hourly_sales": hourly_sales or original["hourly_sales"],
+            "minimum_customers_per_hour": minimum_customers_per_hour or original["minimum_customers_per_hour"],
+            "maximum_customers_per_hour": maximum_customers_per_hour or original["maximum_customers_per_hour"],
+            "maximum_customers_per_hour": maximum_customers_per_hour or original["maximum_customers_per_hour"],
         }
 
         response = requests.put(url, json=data, headers=headers)
