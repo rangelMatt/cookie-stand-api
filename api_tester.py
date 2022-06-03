@@ -96,8 +96,12 @@ class ApiTester:
 
         data = {
             "location": location,
+            "owner": owner,
             "description": description,
-            "purchaser": purchaser,
+            "hourly_sales": hourly_sales,
+            "minimum_customers_per_hour": minimum_customers_per_hour,
+            "maximum_customers_per_hour": maximum_customers_per_hour,
+            "average_cookies_per_sale": average_cookies_per_sale,
         }
 
         response = requests.post(url, json=data, headers=headers)
@@ -132,6 +136,7 @@ class ApiTester:
             "minimum_customers_per_hour": minimum_customers_per_hour or original["minimum_customers_per_hour"],
             "maximum_customers_per_hour": maximum_customers_per_hour or original["maximum_customers_per_hour"],
             "maximum_customers_per_hour": maximum_customers_per_hour or original["maximum_customers_per_hour"],
+            "average_cookies_per_sale": average_cookies_per_sale or original["average_cookies_per_sale"]
         }
 
         response = requests.put(url, json=data, headers=headers)
