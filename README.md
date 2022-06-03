@@ -33,3 +33,12 @@
   - `UserName: <admin name>`
   - `password: <password>`
 - `python manage.py runserver`
+
+#### Heroku Setup
+
+- Set up Heroku with environment variables in settings > config vars
+- complete acp to main
+- `heroku apps:create <project repo name>`
+- `heroku stack:set container`
+- `git push heroku main`
+- `heroku restart` # to quickly restart the app
