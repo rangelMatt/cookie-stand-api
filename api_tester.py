@@ -3,7 +3,7 @@ import requests
 
 # NOTE: Adjust these settings as needed
 API_HOST = "http://localhost:8000"
-RESOURCE_URI = "things"
+RESOURCE_URI = "cookie_stands"
 USERNAME = "admin"
 PASSWORD = "admin"
 
@@ -97,14 +97,14 @@ class ApiTester:
         data = {
             "name": name,
             "description": description,
-            "owner": owner,
+            "purchaser": purchaser,
         }
 
         response = requests.post(url, json=data, headers=headers)
 
         return response.json()
 
-    def update(self, id, name=None, description=None, owner=None):
+    def update(self, id, name=None, description=None, purchaser=None):
         """updates a resource in api
 
         Usage:
@@ -127,7 +127,7 @@ class ApiTester:
         data = {
             "name": name or original["name"],
             "description": description or original["description"],
-            "owner": owner or original["owner"],
+            "purchaser": purchaser or original["purchaser"],
         }
 
         response = requests.put(url, json=data, headers=headers)
